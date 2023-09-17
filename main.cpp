@@ -5,6 +5,11 @@
 using namespace std;
 
 int main() {
-    cout << "feel " << endl
-         << A() << endl;
+    int first,second;
+    cout<<"Enter the first number:"<<endl;
+    cin>>first;
+    cout<<"Enter the second number:"<<endl;
+    cin>>second;
+    cout<<"gcd is "<<gcd(first,second)<<endl;
+
 }
