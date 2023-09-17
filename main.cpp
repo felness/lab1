@@ -5,6 +5,6 @@
 using namespace std;
 
 int main() {
-    cout << "Bruh: " << endl
+    cout << "feel " << endl
          << A() << endl;
 }
