@@ -10,6 +10,13 @@ int main() {
     cin>>first;
     cout<<"Enter the second number:"<<endl;
     cin>>second;
-    cout<<"gcd is "<<gcd(first,second)<<endl;
+    if(gcd(first,second)<0) {
+         cout<<"gcd is "<<gcd(first,second)*-1<<endl;
+    }
+       
+    else{
+        cout<<"gcd is "<<gcd(first,second)<<endl;
+    }
+    
 
 }
