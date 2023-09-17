@@ -34,3 +34,14 @@ TEST(ExampleOfStandartUsageTest3, BasicAssertions) {
   // assert
   EXPECT_EQ(res, 3);
 }
+TEST(sameValues,BasicAssertions){
+  //arrange
+  int first_number=5;
+  int second_number=5;
+
+  //act
+  int res=gcd(first_number,second_number);
+  
+  //assert
+  EXPECT_EQ(res,5);
+}
