@@ -1,7 +1,8 @@
-// Copyright 2023 SomeName
 
 #include "lib.h"
 
-int A() {
-    return 20;
+int gcd(int first_number,int second_number) {
+    if (second_number==0)
+        return first_number;
+    return gcd(b,a%b);
 }
