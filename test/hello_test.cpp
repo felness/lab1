@@ -3,19 +3,19 @@
 
 TEST(ExampleOfStandartUsageTest1, BasicAssertions) {
   // arrange 
-  int first_number = 1;
-  int second_number = 9;
+  int first_number = -10;
+  int second_number = -5;
 
   // act
   int res = gcd(first_number,second_number);
 
   // assert
-  EXPECT_EQ(res, 1);
+  EXPECT_EQ(res, 5);
 }
 TEST(ExampleOfStandartUsageTest2, BasicAssertions) {
   // arrange 
-  int first_number = 2;
-  int second_number = 10;
+  int first_number = -16;
+  int second_number = 2;
 
   // act
   int res = gcd(first_number,second_number);
