@@ -10,7 +10,7 @@ int main() {
     cin>>first;
     cout<<"Enter the second number:"<<endl;
     cin>>second;
-    cout<<"gcd is "<<gcd(first,second)<<endl;
+    cout<<"gcd i "<<gcd(first,second)<<endl;
     
 
 }
