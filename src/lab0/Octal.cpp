@@ -23,7 +23,7 @@ Octal::Octal(const std::initializer_list< unsigned char> &t){
     int i = t.size() - 1;
     for (auto c: t){
         
-        if (c > '3' || c < '0'){
+        if (c > '7' || c < '0'){
             throw std::invalid_argument("wrong data");
         }
         _array[i] = c;

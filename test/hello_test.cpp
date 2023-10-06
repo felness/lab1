@@ -5,29 +5,29 @@
 
 TEST(errorTest, BasicAssertions) {
   int n = 3;
-  char x = 'd';
+  char z = 'X';
 
-  EXPECT_THROW(Four test_obj(n, x), std::invalid_argument);
+  EXPECT_THROW(Octal test_obj(n, z), std::invalid_argument);
 }
 
 TEST(BaseConstructorTest, BasicAssertions) {
-  Four test_obj {};
+  Octal test_obj {};
 
   EXPECT_EQ(test_obj.getArray(), nullptr);
   EXPECT_EQ(test_obj.getSize(), 0);
 }
 
 TEST(ConstructorTest2, BasicAssertions) {
-  int n = 4;
-  char val = '0';
+  int n = 5;
+  char value = '0';
 
-  Four test_obj(n, val);
+  Octal test_obj(n, value);
   int test_size = test_obj.getSize(); 
   unsigned char* test_arr = test_obj.getArray();
   
-  unsigned char ans_arr [] = "0000";
-  int ans_size = 4;
-  Four ans = Builder().size(ans_size).arr(ans_arr).build();
+  unsigned char ans_arr [] = "00000";
+  int ans_size = 5;
+  Octal ans = Builder().size(ans_size).arr(ans_arr).build();
 
   EXPECT_EQ(test_size, ans.getSize());
   for (int i = 0; i < test_size; i++){
@@ -38,13 +38,13 @@ TEST(ConstructorTest2, BasicAssertions) {
 
 TEST(StringConstructorTest, BasicAssertions) {
 
-  Four test_obj("0000");
+  Octal test_obj("00000");
   int test_size = test_obj.getSize(); 
   unsigned char* test_arr = test_obj.getArray();
   
-  unsigned char ans_arr [] = "0000";
-  int ans_size = 4;
-  Four ans = Builder().size(ans_size).arr(ans_arr).build();
+  unsigned char ans_arr [] = "00000";
+  int ans_size = 5;
+  Octal ans = Builder().size(ans_size).arr(ans_arr).build();
 
   EXPECT_EQ(test_size, ans.getSize());
   for (int i = 0; i < test_size; i++){
@@ -54,16 +54,16 @@ TEST(StringConstructorTest, BasicAssertions) {
 
 TEST(StringConstructorError, BasicAssertions) {
 
-  EXPECT_THROW(Four obj{"dafas"};, std::invalid_argument);
+  EXPECT_THROW(Octal obj{"klioform"};, std::invalid_argument);
 
 }
 
 TEST(CopyConstructor, BasicAssertions){
   unsigned char ans_arr[] = "00000";
   int ans_size = 5;
-  Four ans = Builder().size(ans_size).arr(ans_arr).build();
+  Octal ans = Builder().size(ans_size).arr(ans_arr).build();
 
-  Four test {ans};
+  Octal test {ans};
   int test_size = test.getSize();
 
   EXPECT_EQ(test_size, ans.getSize());
@@ -74,20 +74,20 @@ TEST(CopyConstructor, BasicAssertions){
 }
 
 TEST(SumTest, BasicAssertions){
-  int FirstNum_size = 2;
-  int SecondNum_size = 2;
+  int FirstNumber_size = 3;
+  int SecondNumber_size = 3;
 
-  unsigned char FirstNum[] = "10";
-  unsigned char SecondNum[] = "10";
+  unsigned char FirstNum[] = "200";
+  unsigned char SecondNum[] = "200";
 
-  Four First = Builder().size(FirstNum_size).arr(FirstNum).build();
-  Four Second = Builder().size(SecondNum_size).arr(SecondNum).build();
+  Octal First = Builder().size(FirstNumber_size).arr(FirstNum).build();
+  Octal Second = Builder().size(SecondNumber_size).arr(SecondNum).build();
 
-  unsigned char ans_arr[] = "20";
-  int ans_size = 2; 
+  unsigned char ans_arr[] = "400";
+  int ans_size = 3; 
 
 
-  Four res {First.operator+(Second)};
+  Octal res {First.operator+(Second)};
   
   EXPECT_EQ(res.getSize(), ans_size);
   for (int i = 0; i < res.getSize(); i++){
@@ -97,20 +97,20 @@ TEST(SumTest, BasicAssertions){
 
 
 TEST(SumTest2, BasicAssertions){
-  int FirstNum_size = 3;
-  int SecondNum_size = 2;
+  int FirstNumber_size = 3;
+  int SecondNumber_size = 1;
 
-  unsigned char FirstNum[] = "100";
-  unsigned char SecondNum[] = "10";
+  unsigned char FirstNum[] = "120";
+  unsigned char SecondNum[] = "1";
 
-  Four First = Builder().size(FirstNum_size).arr(FirstNum).build();
-  Four Second = Builder().size(SecondNum_size).arr(SecondNum).build();
+  Octal First = Builder().size(FirstNumber_size).arr(FirstNum).build();
+  Octal Second = Builder().size(SecondNumber_size).arr(SecondNum).build();
 
-  unsigned char ans_arr[] = "110";
+  unsigned char ans_arr[] = "121";
   int ans_size = 3; 
 
 
-  Four res {First.operator+(Second)};
+  Octal res {First.operator+(Second)};
   
   EXPECT_EQ(res.getSize(), ans_size);
   for (int i = 0; i < res.getSize(); i++){
@@ -125,14 +125,14 @@ TEST(SubtractionTest, BasicAssertions){
   unsigned char FirstNum[] = "110";
   unsigned char SecondNum[] = "10";
 
-  Four First = Builder().size(FirstNum_size).arr(FirstNum).build();
-  Four Second = Builder().size(SecondNum_size).arr(SecondNum).build();
+  Octal First = Builder().size(FirstNum_size).arr(FirstNum).build();
+  Octal Second = Builder().size(SecondNum_size).arr(SecondNum).build();
 
   unsigned char ans_arr[] = "100";
   int ans_size = 3; 
 
 
-  Four res {First.operator-(Second)};
+  Octal res {First.operator-(Second)};
   
   EXPECT_EQ(res.getSize(), ans_size);
   for (int i = 0; i < res.getSize(); i++){
@@ -147,8 +147,8 @@ TEST(SubtractionTestError, BasicAssertions){
   unsigned char FirstNum[] = "110";
   unsigned char SecondNum[] = "10";
 
-  Four First = Builder().size(FirstNum_size).arr(FirstNum).build();
-  Four Second = Builder().size(SecondNum_size).arr(SecondNum).build();
+  Octal First = Builder().size(FirstNum_size).arr(FirstNum).build();
+  Octal Second = Builder().size(SecondNum_size).arr(SecondNum).build();
 
   EXPECT_THROW(Second.operator-(First);, std::logic_error);
 }
@@ -160,8 +160,8 @@ TEST(EqualTest, BasicAssertions){
   unsigned char FirstNum[] = "10";
   unsigned char SecondNum[] = "10";
 
-  Four First = Builder().size(FirstNum_size).arr(FirstNum).build();
-  Four Second = Builder().size(SecondNum_size).arr(SecondNum).build();
+  Octal First = Builder().size(FirstNum_size).arr(FirstNum).build();
+  Octal Second = Builder().size(SecondNum_size).arr(SecondNum).build();
 
   bool ans = First.equal(Second);
 
@@ -175,8 +175,8 @@ TEST(EqualTest2, BasicAssertions){
   unsigned char FirstNum[] = "10";
   unsigned char SecondNum[] = "100";
 
-  Four First = Builder().size(FirstNum_size).arr(FirstNum).build();
-  Four Second = Builder().size(SecondNum_size).arr(SecondNum).build();
+  Octal First = Builder().size(FirstNum_size).arr(FirstNum).build();
+  Octal Second = Builder().size(SecondNum_size).arr(SecondNum).build();
 
   bool ans = First.equal(Second);
 
@@ -190,8 +190,8 @@ TEST(MoreTest, BasicAssertions){
   unsigned char FirstNum[] = "10";
   unsigned char SecondNum[] = "100";
 
-  Four First = Builder().size(FirstNum_size).arr(FirstNum).build();
-  Four Second = Builder().size(SecondNum_size).arr(SecondNum).build();
+  Octal First = Builder().size(FirstNum_size).arr(FirstNum).build();
+  Octal Second = Builder().size(SecondNum_size).arr(SecondNum).build();
 
   bool ans = First.more(Second);
 
@@ -205,8 +205,8 @@ TEST(MoreTest2, BasicAssertions){
   unsigned char FirstNum[] = "10";
   unsigned char SecondNum[] = "100";
 
-  Four First = Builder().size(FirstNum_size).arr(FirstNum).build();
-  Four Second = Builder().size(SecondNum_size).arr(SecondNum).build();
+  Octal First = Builder().size(FirstNum_size).arr(FirstNum).build();
+  Octal Second = Builder().size(SecondNum_size).arr(SecondNum).build();
 
   bool ans = Second.more(First);
 
@@ -220,8 +220,8 @@ TEST(LessTest, BasicAssertions){
   unsigned char FirstNum[] = "10";
   unsigned char SecondNum[] = "100";
 
-  Four First = Builder().size(FirstNum_size).arr(FirstNum).build();
-  Four Second = Builder().size(SecondNum_size).arr(SecondNum).build();
+  Octal First = Builder().size(FirstNum_size).arr(FirstNum).build();
+  Octal Second = Builder().size(SecondNum_size).arr(SecondNum).build();
 
   bool ans = Second.less(First);
 
@@ -235,8 +235,8 @@ TEST(LessTest1, BasicAssertions){
   unsigned char FirstNum[] = "10";
   unsigned char SecondNum[] = "100";
 
-  Four First = Builder().size(FirstNum_size).arr(FirstNum).build();
-  Four Second = Builder().size(SecondNum_size).arr(SecondNum).build();
+  Octal First = Builder().size(FirstNum_size).arr(FirstNum).build();
+  Octal Second = Builder().size(SecondNum_size).arr(SecondNum).build();
 
   bool ans = First.less(Second);
 
