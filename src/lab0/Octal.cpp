@@ -2,14 +2,14 @@
 #include <exception>
 #include <stdexcept>
 #include "Octal.h"
-
+using namespace std;
 
 
 Octal::Octal() : _size {0}, _array {nullptr}{}
 
 Octal::Octal(const size_t &n, unsigned char t){
     if (t > '7' or t < '0'){
-        throw std::invalid_argument("wrong data");
+        throw invalid_argument("wrong dataa!!!!");
     }
     _array = new unsigned char[n];
     for (int i = 0; i < n; i++){
@@ -17,14 +17,14 @@ Octal::Octal(const size_t &n, unsigned char t){
     }
     _size = n;
 }
-Octal::Octal(const std::initializer_list< unsigned char> &t){
+Octal::Octal(const initializer_list< unsigned char> &t){
     _array = new unsigned char[t.size()];
    
     int i = t.size() - 1;
     for (auto c: t){
         
         if (c > '7' || c < '0'){
-            throw std::invalid_argument("wrong data");
+            throw invalid_argument("wrong dataa!!!");
         }
         _array[i] = c;
         i--;
@@ -32,11 +32,11 @@ Octal::Octal(const std::initializer_list< unsigned char> &t){
     _size = t.size();
 
 }
-Octal::Octal(const std::string &t){
+Octal::Octal(const string &t){
     _array = new unsigned char[t.size()];
     for (int i = 0; i < t.size(); i++){
         if (t[i] > '7' or t[i]<'0'){
-            throw std::invalid_argument("wrong data");
+            throw invalid_argument("wrong data");
         }
         _array[t.size()-1-i] = t[i];
     }
@@ -65,6 +65,17 @@ Octal::~Octal() noexcept{
         delete[] _array;
         _array = nullptr;
     }
+}
+std::ostream &Octal::print(std::ostream &os){
+    if (_size == 0){
+        os << '0';
+        return os;
+    }
+    for (long long i{_size - 1}; i >= 0; --i){
+        os << _array[i];
+        
+    }
+    return os;
 }
 
 int Octal::getSize(){
@@ -187,3 +198,7 @@ bool Octal::equal(const Octal& other){
         return true;
     }
 }
+std::ostream &operator <<(std::ostream& os, Octal& object) {
+    return object.print(os);
+}
+

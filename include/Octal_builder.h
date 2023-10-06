@@ -3,10 +3,10 @@
 #include <iostream>
 class Builder{
     private:
-        Octal obj;
+        Octal object;
     public:
         Builder();
-        Builder& size(int val);
+        Builder& size(int value);
         Builder& arr(unsigned char* t);
         Octal build();
 };

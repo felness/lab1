@@ -3,20 +3,20 @@
 
 Builder::Builder() = default;
 
-Builder& Builder::size(int val){
-    obj._size = val;
+Builder& Builder::size(int value){
+    object._size = value;
     return *this;
 }
 
 Builder& Builder::arr(unsigned char* t){
-    obj._array = new unsigned char [obj._size];
+    object._array = new unsigned char [object._size];
 
-    for (int i = 0; i < obj._size; i++){
-        obj._array[obj._size-i-1] = t[i];
+    for (int i = 0; i < object._size; i++){
+        object._array[object._size-i-1] = t[i];
     }
     return *this;
 }
 
 Octal Builder::build(){
-    return obj;
+    return object;
 }

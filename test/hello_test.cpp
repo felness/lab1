@@ -3,29 +3,29 @@
 #include "Octal_builder.h"
 #include <string>
 
-TEST(errorTest, BasicAssertions) {
+TEST(ErrorTest, BasicAssertions) {
   int n = 3;
   char z = 'X';
 
   EXPECT_THROW(Octal test_obj(n, z), std::invalid_argument);
 }
 
-TEST(BaseConstructorTest, BasicAssertions) {
+TEST(firstConstructorTest, BasicAssertions) {
   Octal test_obj {};
 
   EXPECT_EQ(test_obj.getArray(), nullptr);
   EXPECT_EQ(test_obj.getSize(), 0);
 }
 
-TEST(ConstructorTest2, BasicAssertions) {
+TEST(SecondConstructorTest2, BasicAssertions) {
   int n = 5;
-  char value = '0';
+  char value = '6';
 
   Octal test_obj(n, value);
   int test_size = test_obj.getSize(); 
   unsigned char* test_arr = test_obj.getArray();
   
-  unsigned char ans_arr [] = "00000";
+  unsigned char ans_arr [] = "66666";
   int ans_size = 5;
   Octal ans = Builder().size(ans_size).arr(ans_arr).build();
 
@@ -36,13 +36,13 @@ TEST(ConstructorTest2, BasicAssertions) {
 
 }
 
-TEST(StringConstructorTest, BasicAssertions) {
+TEST(String_to_ConstructorTest, BasicAssertions) {
 
-  Octal test_obj("00000");
+  Octal test_obj("33333");
   int test_size = test_obj.getSize(); 
   unsigned char* test_arr = test_obj.getArray();
   
-  unsigned char ans_arr [] = "00000";
+  unsigned char ans_arr [] = "33333";
   int ans_size = 5;
   Octal ans = Builder().size(ans_size).arr(ans_arr).build();
 
@@ -52,14 +52,14 @@ TEST(StringConstructorTest, BasicAssertions) {
   }
 }
 
-TEST(StringConstructorError, BasicAssertions) {
+TEST(String_to_ConstructorError, BasicAssertions) {
 
   EXPECT_THROW(Octal obj{"klioform"};, std::invalid_argument);
 
 }
 
-TEST(CopyConstructor, BasicAssertions){
-  unsigned char ans_arr[] = "00000";
+TEST(Copy_Constructor, BasicAssertions){
+  unsigned char ans_arr[] = "55555";
   int ans_size = 5;
   Octal ans = Builder().size(ans_size).arr(ans_arr).build();
 
@@ -118,21 +118,42 @@ TEST(SumTest2, BasicAssertions){
   }
 }
 
-TEST(SubtractionTest, BasicAssertions){
-  int FirstNum_size = 3;
-  int SecondNum_size = 2;
+TEST(DifferenceTest, BasicAssertions){
+  int FirstNumber_size = 3;
+  int SecondNumber_size = 2;
 
-  unsigned char FirstNum[] = "110";
+  unsigned char FirstNum[] = "310";
   unsigned char SecondNum[] = "10";
 
-  Octal First = Builder().size(FirstNum_size).arr(FirstNum).build();
-  Octal Second = Builder().size(SecondNum_size).arr(SecondNum).build();
+  Octal Firstly = Builder().size(FirstNumber_size).arr(FirstNum).build();
+  Octal Secondly = Builder().size(SecondNumber_size).arr(SecondNum).build();
 
-  unsigned char ans_arr[] = "100";
+  unsigned char ans_arr[] = "300";
   int ans_size = 3; 
 
 
-  Octal res {First.operator-(Second)};
+  Octal res {Firstly.operator-(Secondly)};
+  
+  EXPECT_EQ(res.getSize(), ans_size);
+  for (int i = 0; i < res.getSize(); i++){
+    EXPECT_EQ(res.getArray()[i], ans_arr[ans_size - i - 1]);
+  }
+}
+TEST(DifferenceOtherTest,BasicAssertions){
+  int first_number_size=3;
+  int second_number_size = 3;
+  
+  unsigned char FirstNum[] = "455";
+  unsigned char SecondNum[] = "310";
+
+  Octal Firstly = Builder().size(first_number_size).arr(FirstNum).build();
+  Octal Secondly = Builder().size(second_number_size).arr(SecondNum).build();
+
+  unsigned char ans_arr[] = "145";
+  int ans_size = 3; 
+
+
+  Octal res {Firstly.operator-(Secondly)};
   
   EXPECT_EQ(res.getSize(), ans_size);
   for (int i = 0; i < res.getSize(); i++){
@@ -140,7 +161,7 @@ TEST(SubtractionTest, BasicAssertions){
   }
 }
 
-TEST(SubtractionTestError, BasicAssertions){
+TEST(DifferenceTestError, BasicAssertions){
   int FirstNum_size = 3;
   int SecondNum_size = 2;
 
@@ -155,10 +176,10 @@ TEST(SubtractionTestError, BasicAssertions){
 
 TEST(EqualTest, BasicAssertions){
   int FirstNum_size = 3;
-  int SecondNum_size = 2;
+  int SecondNum_size = 3;
 
   unsigned char FirstNum[] = "700";
-  unsigned char SecondNum[] = "70";
+  unsigned char SecondNum[] = "700";
 
   Octal First = Builder().size(FirstNum_size).arr(FirstNum).build();
   Octal Second = Builder().size(SecondNum_size).arr(SecondNum).build();

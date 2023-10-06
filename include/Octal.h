@@ -23,6 +23,8 @@ public:
     bool equal(const Octal& other);
     bool more(const Octal& other) const;
     bool less(const Octal& other) const;
+    std::ostream& print(std::ostream& os);
 
     friend class Builder;
 };
+std::ostream &operator <<(std::ostream& os, const Octal& object);
