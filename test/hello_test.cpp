@@ -158,7 +158,7 @@ TEST(EqualTest, BasicAssertions){
   int SecondNum_size = 2;
 
   unsigned char FirstNum[] = "700";
-  unsigned char SecondNum[] = "700";
+  unsigned char SecondNum[] = "70";
 
   Octal First = Builder().size(FirstNum_size).arr(FirstNum).build();
   Octal Second = Builder().size(SecondNum_size).arr(SecondNum).build();
