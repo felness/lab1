@@ -154,11 +154,11 @@ TEST(SubtractionTestError, BasicAssertions){
 }
 
 TEST(EqualTest, BasicAssertions){
-  int FirstNum_size = 2;
+  int FirstNum_size = 3;
   int SecondNum_size = 2;
 
-  unsigned char FirstNum[] = "10";
-  unsigned char SecondNum[] = "10";
+  unsigned char FirstNum[] = "700";
+  unsigned char SecondNum[] = "700";
 
   Octal First = Builder().size(FirstNum_size).arr(FirstNum).build();
   Octal Second = Builder().size(SecondNum_size).arr(SecondNum).build();
@@ -172,8 +172,8 @@ TEST(EqualTest2, BasicAssertions){
   int FirstNum_size = 2;
   int SecondNum_size = 3;
 
-  unsigned char FirstNum[] = "10";
-  unsigned char SecondNum[] = "100";
+  unsigned char FirstNum[] = "30";
+  unsigned char SecondNum[] = "400";
 
   Octal First = Builder().size(FirstNum_size).arr(FirstNum).build();
   Octal Second = Builder().size(SecondNum_size).arr(SecondNum).build();
@@ -187,8 +187,8 @@ TEST(MoreTest, BasicAssertions){
   int FirstNum_size = 2;
   int SecondNum_size = 3;
 
-  unsigned char FirstNum[] = "10";
-  unsigned char SecondNum[] = "100";
+  unsigned char FirstNum[] = "20";
+  unsigned char SecondNum[] = "300";
 
   Octal First = Builder().size(FirstNum_size).arr(FirstNum).build();
   Octal Second = Builder().size(SecondNum_size).arr(SecondNum).build();
