@@ -4,7 +4,7 @@
 #include "Vector.hpp"
 #include "Point.hpp"
 #include <iostream>
-
+#include "/home/fltww/l_3/labs_oop/src/lab0/Vector.cpp"
 class Figure {
 protected:
   Vector<Point> coordinates;
@@ -14,4 +14,4 @@ public:
   virtual Point calculate_centre() const = 0;
 };
 
-#endif // FIGURE_H_INCLUDED
+#endif // FIGURE_HPP_INCLUDED
