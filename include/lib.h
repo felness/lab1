@@ -1,3 +1,3 @@
 #pragma once
 
-int gcd(int one,int two);
+int gcd(int one,int tw);
