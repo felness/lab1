@@ -1,7 +1,7 @@
-#ifndef SQUARE_H_INCLUDED
-#define SQUARE_H_INCLUDED
+#ifndef SQUARE_HPP_INCLUDED
+#define SQUARE_HPP_INCLUDED
 
-#include "figure.h"
+#include "figure.hpp"
 
 class Square : public Figure {
 public:

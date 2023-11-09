@@ -1,8 +1,8 @@
-#ifndef FIGURE_H_INCLUDED
-#define FIGURE_H_INCLUDED
+#ifndef FIGURE_HPP_INCLUDED
+#define FIGURE_HPP_INCLUDED
 
-#include "Vector.h"
-#include "Point.h"
+#include "Vector.hpp"
+#include "Point.hpp"
 #include <iostream>
 
 class Figure {

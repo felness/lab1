@@ -1,8 +1,9 @@
-#ifndef FUNCTIONS_H_INCLUDED
-#define FUNCTIONS_H_INCLUDED
+#ifndef FUNCTIONS_HPP_INCLUDED
+#define FUNCTIONS_HPP_INCLUDED
 
-#include "Vector.h"
-#include "figure.h"
+#include "Vector.hpp"
+#include "figure.hpp"
+
 
 double calculate_all_area(Vector<Figure*>& vec);
 

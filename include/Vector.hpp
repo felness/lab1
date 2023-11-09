@@ -1,5 +1,5 @@
-#ifndef VECTOR_H_INCLUDED
-#define VECTOR_H_INCLUDED
+#ifndef VECTOR_HPP_INCLUDED
+#define VECTOR_HPP_INCLUDED
 
 #include <iostream>
 #include <cstring>

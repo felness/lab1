@@ -1,7 +1,7 @@
-#ifndef TRIANGLE_H_INCLUDED
-#define TRIANGLE_H_INCLUDED
+#ifndef TRIANGLE_HPP_INCLUDED
+#define TRIANGLE_HPP_INCLUDED
 
-#include "figure.h"
+#include "figure.hpp"
 
 class Triangle : public Figure {
 public:

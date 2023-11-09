@@ -1,5 +1,5 @@
-#ifndef POINT_H_INCLUDED
-#define POINT_H_INCLUDED 
+#ifndef POINT_HPP_INCLUDED
+#define POINT_HPP_INCLUDED 
 
 #include <cmath>
 #include <ostream>

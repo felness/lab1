@@ -1,7 +1,7 @@
-#ifndef OCTAGON_H_INCLUDED
-#define OCTAGON_H_INCLUDED
+#ifndef OCTAGON_HPP_INCLUDED
+#define OCTAGON_HPP_INCLUDED
 
-#include "figure.h"
+#include "figure.hpp"
 
 class Octagon : public Figure {
 public:
