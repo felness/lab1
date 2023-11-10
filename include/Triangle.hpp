@@ -19,4 +19,4 @@ private:
   static bool validate(const Point& p1, const Point& p2, const Point& p3) noexcept;
 };
 
-#endif // TRIANGLE_H_INCLUDED
+#endif 

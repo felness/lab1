@@ -26,4 +26,4 @@ public:
   friend std::istream& operator>>(std::istream& is, Point& rhs);
 };
 
-#endif // POINT_H_INCLUDED
+#endif 

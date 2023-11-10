@@ -37,4 +37,4 @@ private:
     ) noexcept;
 };
 
-#endif // OCTAGON_H_INCLUDED
+#endif 

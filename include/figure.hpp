@@ -14,4 +14,4 @@ public:
   virtual Point calculate_centre() const = 0;
 };
 
-#endif // FIGURE_HPP_INCLUDED
+#endif 

@@ -20,4 +20,4 @@ private:
   static bool validate(const Point& p1, const Point& p2, const Point& p3, const Point& p4) noexcept;
 };
 
-#endif // SQUARE_H_INCLUDED
+#endif 
