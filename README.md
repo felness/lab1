@@ -17,5 +17,14 @@ make run
 ### Запустить тесты
 
 ```
-make test
+make Octagon_test
+```
+```
+make Point_test
+```
+```
+make Triangle_test
+```
+```
+make Square_test
 ```
