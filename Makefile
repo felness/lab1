@@ -1,4 +1,4 @@
-.PHONY: build run test
+.PHONY: build run test test_allocator test_list
 
 build: clean-build
 	mkdir build
@@ -11,6 +11,13 @@ run:
 
 test:
 	./build/*_test
+
+test_allocator:
+	./build/test_allocator
+	
+test_list:
+	./build/test_list
+
 
 clean-build:
 	rm -rf ./build/

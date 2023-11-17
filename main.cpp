@@ -1,16 +1,32 @@
 #include <iostream>
-
-#include "lib.h"
-
-using namespace std;
+#include <map>
+#include <allocator.h>
+#include "/home/fltww/lab5/labs_oop/src/lab0/allocator.cpp"
+#include <list.h>
+#include "/home/fltww/lab5/labs_oop/src/lab0/list.cpp"
 
 int main() {
-    int first,second;
-    cout<<"Enter the first number:"<<endl;
-    cin>>first;
-    cout<<"Enter the second number:"<<endl;
-    cin>>second;
-    cout<<"gcd i "<<gcd(first,second)<<endl;
-    
+  std::map<int, int, std::less<int>, mystd::allocator<int, 1000>> m;
 
+  for (size_t i = 0; i < 10; ++i) {
+    m.insert({i + 10, i});
+  }
+
+  for (auto& e : m) {
+    std::cout << '{' << e.first << ", " << e.second << "}, ";
+  }
+
+  std::cout << std::endl;
+  mystd::list<int, mystd::allocator<int, 1000>> lst;
+  mystd::list<int, mystd::allocator<int, 1000>> a;
+  a = lst;
+
+  lst.push_front(123);
+  a.push_front(228);
+
+  std::cout << a.max_size() << std::endl;
+  std::cout << a.front() << std::endl;
+  std::cout << lst.max_size() << std::endl;
+  std::cout << lst.front() << std::endl;
+  return 0;
 }

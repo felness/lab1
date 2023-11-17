@@ -31,3 +31,10 @@ add_executable(${CMAKE_PROJECT_NAME}_test ${TEST_SOURCES})
 target_include_directories(${CMAKE_PROJECT_NAME}_test PRIVATE ${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
 target_link_libraries(${CMAKE_PROJECT_NAME}_test PRIVATE ${CMAKE_PROJECT_NAME}_lib gtest gtest_main)
+
+add_executable(test_allocator ${TEST_DIR}/test_allocator.cpp)
+target_link_libraries(test_allocator PRIVATE ${CMAKE_PROJECT_NAME}_lib gtest gtest_main)
+
+add_executable(test_list ${TEST_DIR}/test_list.cpp)
+target_link_libraries(test_list PRIVATE ${CMAKE_PROJECT_NAME}_lib gtest gtest_main)
+
