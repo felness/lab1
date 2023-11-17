@@ -31,3 +31,15 @@ add_executable(${CMAKE_PROJECT_NAME}_test ${TEST_SOURCES})
 target_include_directories(${CMAKE_PROJECT_NAME}_test PRIVATE ${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
 target_link_libraries(${CMAKE_PROJECT_NAME}_test PRIVATE ${CMAKE_PROJECT_NAME}_lib gtest gtest_main)
+
+add_executable(Octagon_test ${TEST_DIR}/Octagon_test.cpp)
+target_link_libraries(Octagon_test PRIVATE ${CMAKE_PROJECT_NAME}_lib gtest gtest_main)
+
+add_executable(Triangle_test ${TEST_DIR}/Triangle_test.cpp)
+target_link_libraries(Triangle_test PRIVATE ${CMAKE_PROJECT_NAME}_lib gtest gtest_main)
+
+add_executable(Square_test ${TEST_DIR}/Square_test.cpp)
+target_link_libraries(Square_test PRIVATE ${CMAKE_PROJECT_NAME}_lib gtest gtest_main)
+
+add_executable(Point_test ${TEST_DIR}/Point_test.cpp)
+target_link_libraries(Point_test PRIVATE ${CMAKE_PROJECT_NAME}_lib gtest gtest_main)
