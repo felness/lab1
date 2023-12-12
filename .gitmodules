@@ -1,3 +1,9 @@
 [submodule "lib/googletest"]
 	path = lib/googletest
 	url = https://github.com/google/googletest/
+[submodule "colors/colors/termcolor"]
+	path = colors/colors/termcolor
+	url = https://github.com/ikalnytskyi/termcolor.git
+[submodule "some_colors/termcolor"]
+	path = some_colors/termcolor
+	url = https://github.com/ikalnytskyi/termcolor.git
